@@ -2,7 +2,7 @@
 
 转自： 张俊林 （本文2017年发表于《程序员》杂志7月刊）
 
-[原文链接]: https://zhuanlan.zhihu.com/p/37601161
+[原文链接](https://zhuanlan.zhihu.com/p/37601161)
 
 **人类的视觉注意力**
 
