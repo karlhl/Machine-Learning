@@ -4,8 +4,7 @@
 
 - [Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf)
 - [图解Transformer](https://blog.csdn.net/longxinchen_ml/article/details/86533005)
-
-
+- [李宏毅ppt]([http://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2019/Lecture/Transformer%20(v5).pdf](http://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2019/Lecture/Transformer (v5).pdf)
 
 前言：前一段时间谷歌推出的BERT模型在11项NLP任务中夺得SOTA结果，引爆了整个NLP界。而BERT取得成功的一个关键因素是Transformer的强大作用。谷歌的Transformer模型最早是用于机器翻译任务，当时达到了SOTA效果。Transformer改进了RNN最被人诟病的训练慢的缺点，利用self-attention机制实现快速并行。并且Transformer可以增加到非常深的深度，充分发掘DNN模型的特性，提升模型准确率。在本文中，我们将研究Transformer模型，把它掰开揉碎，理解它的工作原理。
 
@@ -15,7 +14,9 @@ Transformer由论文《Attention is All You Need》提出，现在是谷歌云TP
 
 Attention is All You Need：https://arxiv.org/abs/1706.03762
 
-**从宏观的视角开始**
+## 铺垫准备工作
+
+### **宏观：Encode Decode模型**
 
 首先将这个模型看成是一个黑箱操作。在机器翻译中，就是输入一种语言，输出另一种语言。
 
@@ -43,7 +44,7 @@ Attention is All You Need：https://arxiv.org/abs/1706.03762
 
 
 
-**将张量引入图景**
+### **将张量引入图景**
 
 我们已经了解了模型的主要部分，接下来我们看一下各种向量或张量（译注：张量概念是矢量概念的推广，可以简单理解矢量是一阶张量、矩阵是二阶张量。）是怎样在模型的不同部分中，将输入转化为输出的。
 
@@ -53,7 +54,7 @@ Attention is All You Need：https://arxiv.org/abs/1706.03762
 
 每个单词都被嵌入为512维的向量，我们用这些简单的方框来表示这些向量。
 
-词嵌入((Word Embedding))过程只发生在最底层的编码器中。所有的编码器都有一个相同的特点，即它们接收一个向量列表，列表中的每个向量大小为512维。在底层（最开始）编码器中它就是词向量，但是在其他编码器中，它就是下一层编码器的输出（也是一个向量列表）。向量列表(Embedding Size)大小是我们可以设置的超参数——一般是我们训练集中最长句子的长度。
+词嵌入((Word Embedding))过程发生在最底层的编码器之前。所有的编码器都有一个相同的特点，即它们接收一个向量列表，列表中的每个向量大小为512维。在底层（最开始）编码器中它就是词向量，但是在其他编码器中，它就是下一层编码器的输出（也是一个向量列表）。向量列表(Embedding Size)大小是我们可以设置的超参数——一般是我们训练集中最长句子的长度。
 
 将输入序列进行词嵌入之后，每个单词都会流经编码器中的两个子层。
 
@@ -65,19 +66,75 @@ Attention is All You Need：https://arxiv.org/abs/1706.03762
 
 输入序列的每个单词都经过自编码过程。然后，他们各自通过前向传播神经网络——完全相同的网络，而每个向量都分别通过它。
 
-**自注意力机制**
+### RNN及其局限
 
-self  attention 可以看attention下的文章。
+上小节提到了编码器和解码器都用到了self-attention。提到及其翻译，最长想到的架构就是RNN。
 
-宏观
+![image-20200828142819133](https://raw.githubusercontent.com/karlhl/Picgo/master/image/image-20200828142819133.png)
+
+RNN在输出的时候，需要看到整个输入序列。弊端：不容易平行化。比如要计算b4,需要看到a1-a4.
+
+也有人提出用CNN替换，CNN可以平行化。缺点只能看到很小的部分，解决方法，利用多层CNN，也可以使模型看到很远。
+
+所以有人提出用self-attention替换RNN，任何可以用RNN做到的事情，都可以用self-attention做到。
+
+### **自注意力机制**
+
+模型结构。RNN在计算b4的时候，需要计算出a3的值以此来推,它弥补了RNN的不足，b1-b4都是可以同时平行计算出来的，可同时看到了a1-a4。
+
+事实上上边说的是编码器部分，编码器self-attention是可以平行计算的。对于解码器，是像RNN一样逐个计算出的，因为当前输出需要用到之前的输出。
+
+![image-20200828143535726](https://raw.githubusercontent.com/karlhl/Picgo/master/image/image-20200828143535726.png)
+
+self -attention 可以看attention下的文章。
 
 ![img](http://aistar.site/20190404/2.jpg)
 
 随着模型处理输入序列的每个单词，自注意力会关注整个输入序列的所有单词，帮助模型对本单词更好地进行编码。
 
-微观：
+### self-attention的微观实现
 
 首先我们了解一下如何使用向量来计算自注意力，然后来看它实怎样用矩阵来实现。
+
+首先介绍李宏毅课程的理解：
+
+![image-20200828144245708](https://raw.githubusercontent.com/karlhl/Picgo/master/image/image-20200828144245708.png)
+
+首先输入序列x1-x4，通过乘一个W矩阵，这个过程就是embedding，也可以理解通过一个全连接层。得到的a1-a4就是embedding后的词向量。分别于Wq，Wk，Wv乘得到q,k,v
+
+![image-20200828145541609](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828145541609.png)
+
+然后拿每个q去对每个k做attention。
+
+在 [Attention Is All You Need](https://papers.nips.cc/paper/7181-attention-is-all-you-need.pdf) 这篇论文中，有提到两种较为常见的注意力机制：additive attention 和 dot-product attention。并讨论到，当 query 和 key 向量维度 dk 较小时，这两种注意力机制效果相当，但当 dk较大时，additive attention 要优于 dot-product attention. 但是 dot-product attention 在计算方面更具有优势。为了利用 dot-product attention 的优势且消除当 dk较大时 dot-product attention 的不足，原文采用 scaled dot-product attention。
+
+scaled的意思是加了缩放因子，就是除了根号d。原因是因为点积得到的维度都很大，使得结果处于softmax函数梯度很小的区域，需要除一个来平衡。
+
+![image-20200828150221105](https://raw.githubusercontent.com/karlhl/Picgo/master/image/image-20200828150221105.png)
+
+将每个a通过soft-max。这个softmax分数决定了每个单词对编码当下位置的贡献。显然，已经在这个位置上的单词将获得最高的softmax分数，但有时关注另一个与当前单词相关的单词也会有帮助。
+
+![image-20200828150258738](https://raw.githubusercontent.com/karlhl/Picgo/master/image/image-20200828150258738.png)
+
+b1是用到了整个序列。
+
+![image-20200828150430788](https://raw.githubusercontent.com/karlhl/Picgo/master/image/image-20200828150430788.png)
+
+同理，在同一时间可以计算b2.....结果都是并行计算出来的。下面通过微观矩阵进行表示，更能说明为什么可以平行化。
+
+![image-20200828150621527](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828150621527.png)
+
+![image-20200828150801258](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828150801258.png)
+
+![image-20200828151024502](https://raw.githubusercontent.com/karlhl/Picgo/master/image/image-20200828151024502.png)
+
+得到Ahat（经过soft-max）之后，最后输出结果是经过加权求和。所以output = V dot Ahat
+
+![image-20200828151158067](https://raw.githubusercontent.com/karlhl/Picgo/master/image/image-20200828151158067.png)
+
+**下边是另一篇文章的解释**
+
+意思大体相同
 
 计算自注意力的第一步就是从每个编码器的输入向量（每个单词的词向量）中生成三个向量。也就是说对于每个单词，我们创造一个查询向量、一个键向量和一个值向量。这三个向量是通过词嵌入与三个权重矩阵后相乘创建的。
 
@@ -119,13 +176,24 @@ x矩阵中的每一行对应于输入句子中的一个单词。我们再次看�
 
 最后，由于我们处理的是矩阵，我们可以将步骤2到步骤6合并为一个公式来计算自注意力层的输出。
 ![img](http://aistar.site/20190404/4.jpg)
-**“多头”注意力**
+
+### **“多头”注意力**
 
 通过增加一种叫做“多头”注意力（“multi-headed” attention）的机制，论文进一步完善了自注意力层，并在两方面提高了注意力层的性能：
 
 1.它扩展了模型专注于不同位置的能力。在上面的例子中，虽然每个编码都在z1中有或多或少的体现，但是它可能被实际的单词本身所支配。如果我们翻译一个句子，比如“The animal didn’t cross the street because it was too tired”，我们会想知道“it”指的是哪个词，这时模型的“多头”注意机制会起到作用。
 
 2.它给出了注意力层的多个“表示子空间”（representation subspaces）。接下来我们将看到，对于“多头”注意机制，我们有多个查询/键/值权重矩阵集(Transformer使用八个注意力头，因此我们对于每个编码器/解码器有八个矩阵集合)。这些集合中的每一个都是随机初始化的，在训练之后，每个集合都被用来将输入词嵌入(或来自较低编码器/解码器的向量)投影到不同的表示子空间中。
+
+![image-20200828151948819](https://raw.githubusercontent.com/karlhl/Picgo/master/image/image-20200828151948819.png)
+
+举例两个头来说，把qi乘不同矩阵得到两个不同q。同理k，v
+
+![image-20200828152144361](https://raw.githubusercontent.com/karlhl/Picgo/master/image/image-20200828152144361.png)
+
+得到不同b的维度之后降维，每个head可以看到不同的位置。
+
+另一个解释：
 
 ![img](http://aistar.site/20190404/5.jpg)
 
@@ -153,13 +221,11 @@ x矩阵中的每一行对应于输入句子中的一个单词。我们再次看�
 
 ![img](https://n.sinaimg.cn/front/26/w418h408/20190108/7FQl-hrkkwef7009369.jpg)
 
-**使用位置编码表示序列的顺序**
+### **使用位置编码表示序列的顺序**
 
 到目前为止，我们对模型的描述缺少了一种理解输入单词顺序的方法。
 
 为了解决这个问题，Transformer为每个输入的词嵌入添加了一个向量。这些向量遵循模型学习到的特定模式，这有助于确定每个单词的位置，或序列中不同单词之间的距离。这里的直觉是，将位置向量添加到词嵌入中使得它们在接下来的运算中，能够更好地表达的词与词之间的距离。
-
-![img](https://n.sinaimg.cn/front/92/w1080h612/20190108/Mjnu-hrkkwef7009436.jpg)
 
 为了让模型理解单词的顺序，我们添加了位置编码向量，这些向量的值遵循特定的模式。
 
@@ -167,6 +233,14 @@ x矩阵中的每一行对应于输入句子中的一个单词。我们再次看�
 
 ![img](https://n.sinaimg.cn/front/527/w1035h292/20190108/tA3K-hrkkwef7009546.jpg)
 尺寸为4的迷你词嵌入位置编码实例
+
+至于为什么是直接把位置向量相加。
+
+![image-20200828153054587](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828153054587.png)
+
+假设不是相加，而是通过外接一个one-hot向量pi。也就是输入变成了xi+pi，原来的w矩阵也需要加长一个wp。计算的结果是和直接相加得到的结果相同的。wp的生成原论文是通过一个神奇算式计算出来的。
+
+
 
 在下图中，每一行对应一个词向量的位置编码，所以第一行对应着输入序列的第一个词。每行包含512个值，每个值介于1和-1之间。我们已经对它们进行了颜色编码，所以图案是可见的。
 
@@ -206,7 +280,7 @@ x矩阵中的每一行对应于输入句子中的一个单词。我们再次看�
 
 这个“编码-解码注意力层”工作方式基本就像多头自注意力层一样，只不过它是通过在它下面的层来创造查询矩阵，并且从编码器的输出中取得键/值矩阵。
 
-**最终的线性变换和Softmax层**
+### **最终的线性变换和Softmax层**
 
 解码组件最后会输出一个实数向量。我们如何把浮点数变成一个单词？这便是线性变换层要做的工作，它之后就是Softmax层。
 
@@ -220,39 +294,40 @@ x矩阵中的每一行对应于输入句子中的一个单词。我们再次看�
 
 这张图片从底部以解码器组件产生的输出向量开始。之后它会转化出一个输出单词。
 
+## 论文正文
 
+### 整体架构
 
-# 论文正文
+下图是论文的详细结构模型
 
 ![image-20200823142656593](https://raw.githubusercontent.com/karlhl/Picgo/master/image/image-20200823142656593.png)
 
-<center>图1 模型结构
 
-和大多数seq2seq模型一样，Transformer由6个encoder和6个decoder组成。在结构上都是相同的，但它们不共享权重。
+左边是编码器，右边是解码器。
 
 **Encoder**
+
+![image-20200828154118016](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828154118016.png)
+
+编码器的结构如上图。
 
 ![img](https://upload-images.jianshu.io/upload_images/1667471-65f63dfbd230efc3.png?imageMogr2/auto-orient/strip|imageView2/2/w/914/format/webp)
 
 1. Input 经过 embedding 后，要做 positional encodings
 
-2. 然后是 Multi-head attention，
+2. 然后是 Multi-head attention
 
-3. 再经过 position-wise Feed Forward，
+3. 再经过 position-wise Feed Forward
 
-4. 每个子层之间有残差连接。
+4. 每个子层之间有残差连接
 
 Encoder由N=6个相同的layer组成，layer指的就是上图左侧的单元，最左边有个“Nx”，这里是x6个。每个Layer由两个sub-layer组成，分别是多头注意力（multi-head self-attention mechanism）和fully connected feed-forward network。其中每个sub-layer都加了residual connection和normalisation，因此可以将sub-layer的输出表示为：
 
 ![[公式]](https://www.zhihu.com/equation?tex=sub\_layer\_output+%3D+LayerNorm(x%2B(SubLayer(x)))
 
-
-
-
-
-
-
 **Decoder**
+
+Decoder的输入是前一个输入的输出。masked是做attention的时候只计算已经产生过的东西。
 
 1. 如上图所示，也有 positional encodings，Multi-head attention 和 FFN，子层之间也要做残差连接，
 
@@ -273,6 +348,8 @@ Decoder和Encoder的结构差不多，但是多了一个attention的sub-layer，
 ![img](https://pic4.zhimg.com/80/v2-df2ca1b7a60d829245b7b7c37f80a3aa_720w.jpg)
 
 **Positional Encoding**
+
+原来的paper的位置编码是人设的。
 
 除了主要的Encoder和Decoder，还有数据预处理的部分。Transformer抛弃了RNN，而RNN最大的优点就是在时间序列上对数据的抽象，所以文章中作者提出两种Positional Encoding的方法，将encoding后的数据与embedding数据求和，加入了相对位置信息。
 
@@ -317,6 +394,8 @@ Decoder和Encoder的结构差不多，但是多了一个attention的sub-layer，
 
 ![img](https://pic3.zhimg.com/80/v2-d69547987a6510f22171b35c6e3f7e7e_720w.jpg)
 
+​	每两个词都会进行attention，线条越粗表示指向的概率越大。位置不一样的词，指向的位置不一样。
+
 **缺点**
 
 缺点在原文中没有提到，是后来在Universal Transformers中指出的，在这里加一下吧，主要是两点：
@@ -328,13 +407,19 @@ Transformer是第一个用纯attention搭建的模型，不仅计算速度更快
 
 
 
+应用：
 
+seq2seq
 
+summarizer
 
+![image-20200828154850233](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828154850233.png)
 
+每一层都是transformer，在深度上都是rnn
 
+![image-20200828154902295](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828154902295.png)
 
-
+也可以应用在图像上，每一个像素都去匹配其他像素
 
 
 

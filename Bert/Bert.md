@@ -1,5 +1,13 @@
 # Bert
 
+### 0、前言
+
+同一个单词可能有不同的语义。
+
+![image-20200828215034538](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828215034538.png)
+
+每一个单词token都有自己的embedding。如果两个两个token的意思接近，那么他们的embedding向量会距离比较近。
+
 ### 1、BERT模型概述
 
 BERT，全称是 Bidirectional Encoder Representation from Transformers， Google 于 2018 年发表，它在 11 项自然语言处理任务中均表现出惊人的成绩。BERT即双向Transformer的Encoder，因为decoder是不能获要预测的信息的。模型的主要创新点都在pre-train方法上，即用了Masked LM和Next Sentence Prediction两种方法分别捕捉词语和句子级别的representation。
@@ -28,7 +36,11 @@ Bert 的目标是生成预训练语言模型，所以只需要 Encoder 机制。
 
 ##### 1、BERT的架构
 
-BERT的模型架构基于了Transformer，实现了多层双向的Transformer编码器。文中有两个模型，一个是1.1亿参数的base模型，一个是3.4亿参数的large模型。里面所设置的参数如下：
+![image-20200828220007075](https://raw.githubusercontent.com/karlhl/Picgo/master/image/image-20200828220007075.png)
+
+（注意如果要做中文的embedding的话，最好用单字，而不是词，词的组合太多，维度会非常大，而字的数量是有限的）
+
+BERT的模型架构基于了Transformer，实现了多层双向的Transformer编码器，也就是蓝色框出来的部分。文中有两个模型，一个是1.1亿参数的base模型，一个是3.4亿参数的large模型。里面所设置的参数如下：
 
 |    Model    | Transformer层数(L) | Hidden units(H) | self-attention heads(A) | 总参数 |
 | :---------: | :----------------: | :-------------: | :---------------------: | :----: |
@@ -113,7 +125,7 @@ BERT能够处理最长512个token的输入序列，长度超过 512 会被截取
 
 ### 3、BERT中最核心的部分
 
-###### （1）Masked Language Model(MLM)**
+###### （1）Masked Language Model(MLM)
 Maked LM 是为了解决单向信息问题，现有的语言模型的问题在于，没有同时利用双向信息，如 ELMO 号称是双向LM，但实际上是两个单向 RNN 构成的语言模型的拼接，由于时间序列的关系，RNN模型预测当前词只依赖前面出现过的词，对于后面的信息无从得知。
 
  MLM：随机屏蔽掉部分输入token，然后再去预测这些被屏蔽掉的token。
@@ -126,7 +138,7 @@ Bert 预训练过程就是模仿我们学习语言的过程，要准确的理解
 
 随机 mask 预料中 15% 的 Token，然后预测 [MASK] Token，与 masked token 对应的最终隐藏向量被输入到词汇表上的 softmax 层中。这虽然确实能训练一个双向预训练模型，但这种方法有个缺点，因为在预训练过程中随机 [MASK] Token 由于每次都是全部 mask，预训练期间会记住这些 MASK 信息，但是在fine-tune期间从未看到过 [MASK] Token，导致预训练和 fine-tune 信息不匹配。
 
-而为了解决预训练和 fine-tune 信息不匹配，Bert 并不总是用实际的 [MASK] Token 替换 masked 词汇。
+而为了解决预训练和 fine-tune 信息不匹配，Bert 并不总是用实际的 [MASK] Token 替换 masked 词汇。操作方法如上图。
 
  这里实现的时候有两个缺点
  **缺点1**：预训练与微调之间的不匹配，因为微调期间是没有看到[MASK] Token。
@@ -151,6 +163,12 @@ Input = [CLS] the man [MASK] to the store [SEP]
 Label = NotNext
 ```
 
+![image-20200828221140226](https://raw.githubusercontent.com/karlhl/Picgo/master/image/image-20200828221140226.png)
+
+在句子开头插入一个特殊的token：cls 。告诉bert需要做分类模型，判断两个句子是不是用在用一时间的。
+
+关于为什么把cls放在开头，因为bert里边不是RNN，它里边是一个Transformer的Encoder，不管cls放在什么位置，输出都是并行一起输出的。
+
 模型通过对 Masked LM 任务和 Next Sentence Prediction 任务进行联合训练，使模型输出的每个字 / 词的向量表示都能尽可能全面、准确地刻画输入文本（单句或语句对）的整体信息，为后续的微调任务提供更好的模型参数初始值。
 
 **Bert如何实现fine-tune**
@@ -159,7 +177,45 @@ Label = NotNext
 
 fine-tune 就是指在已经训练好的语言模型基础上，使用有标签的数据对参数进行调整，使其更好的适用于下游任务。如对于分类问题在语言模型基础上加一层 softmax 网络，然后再新的预料上重新训练进行 fine-tune。
 
-### **4、Bert的主要贡献**
+### 4、如何使用BERT
+
+![image-20200828222120977](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828222120977.png)
+
+比如做情感分类，输入一个句子，在句子的开头加入CLS，在CLS的输出接入一个Linear Classifier, 这个分类器是从头开始学，而BERT是只需要微调参数就好，BERT多数参数已经学的很好了。
+
+![image-20200828222543293](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828222543293.png)
+
+输入一个句子，把每个单词对应的输出都接一个分类器，然后从头开始训练。
+
+![image-20200828232832453](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828232832453.png)
+
+给两个句子，在第一个句子条件下，第二个句子是对的，错的，不知道
+
+![image-20200828232911974](https://raw.githubusercontent.com/karlhl/Picgo/master/image/image-20200828232911974.png)
+
+给定一个文章，回答系统。
+
+输入D是文章，Q是问题。输出是s，e分别是文章的下标是答案。
+
+![image-20200828233336589](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828233336589.png)
+
+![image-20200828233345712](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828233345712.png)
+
+训练一个红色和蓝色的向量，分别和文章的词汇的向量做dot product，分别求出分数，取最高的分别是s和e。
+
+**ERNIE**
+
+Enhanced Representation through Knowledge Integration (ERNIE)
+
+原理与BERT相似，但是专门为了中文设计的。在BERT中，经常mask掉一个值，但是对于中文是非常容易猜出来的。所以ERNIE是每次mask掉一个词。
+
+![image-20200828234144108](https://raw.githubusercontent.com/karlhl/Picgo/master/image/image-20200828234144108.png)
+
+多语言BERT，通过爬英语的维基百科，教他学会分类。然后就自己学会了中文的文章的分类。
+
+
+
+### 5、Bert的主要贡献
 
 Bert 采用深度双向 Transformer 语言模型，通过 Mask LM 来达到训练深度双向预训练模型，较之前使用单向语言模型训练更准确，信息量更大，且语义理解更准确。
 
@@ -173,25 +229,17 @@ Bert 的成功，一个重要原因就是数据量大，计算资源丰富。BER
 
 
 
-
-
-
-
-
-
-
-
 参考：
 
 1. [奔向算法的喵](https://www.jianshu.com/p/160c4800b9b5)
 2. [为什么BERT有3个嵌入层，它们都是如何实现的](http://www.mamicode.com/info-detail-2624808.html)
 3. [论文解读：Bert原理深入浅出](https://zhuanlan.zhihu.com/p/108603250)
 4. [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/pdf/1810.04805.pdf)
-5. [超细节的BERT/Transformer知识点](https://zhuanlan.zhihu.com/p/132554155)
+5. [李宏毅BERT](http://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2019/Lecture/BERT (v3).pdf)
 
+其他推荐阅读：
 
-
-
+1. [超细节的BERT/Transformer知识点](https://zhuanlan.zhihu.com/p/132554155)
 
 
 
