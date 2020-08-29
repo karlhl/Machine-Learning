@@ -102,7 +102,7 @@ self -attention 可以看attention下的文章。
 
 首先输入序列x1-x4，通过乘一个W矩阵，这个过程就是embedding，也可以理解通过一个全连接层。得到的a1-a4就是embedding后的词向量。分别于Wq，Wk，Wv乘得到q,k,v
 
-![image-20200828145541609](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828145541609.png)
+![image-20200828145541609](https://raw.githubusercontent.com/karlhl/Picgo/master/image/20200829153121.png)
 
 然后拿每个q去对每个k做attention。
 
@@ -122,9 +122,9 @@ b1是用到了整个序列。
 
 同理，在同一时间可以计算b2.....结果都是并行计算出来的。下面通过微观矩阵进行表示，更能说明为什么可以平行化。
 
-![image-20200828150621527](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828150621527.png)
+![image-20200828150621527](https://raw.githubusercontent.com/karlhl/Picgo/master/image/20200829153055.png)
 
-![image-20200828150801258](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828150801258.png)
+![image-20200828150801258](https://raw.githubusercontent.com/karlhl/Picgo/master/image/20200829153015.png)
 
 ![image-20200828151024502](https://raw.githubusercontent.com/karlhl/Picgo/master/image/image-20200828151024502.png)
 
@@ -236,7 +236,7 @@ x矩阵中的每一行对应于输入句子中的一个单词。我们再次看�
 
 至于为什么是直接把位置向量相加。
 
-![image-20200828153054587](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828153054587.png)
+![image-20200828153054587](https://raw.githubusercontent.com/karlhl/Picgo/master/image/20200829152844.png)
 
 假设不是相加，而是通过外接一个one-hot向量pi。也就是输入变成了xi+pi，原来的w矩阵也需要加长一个wp。计算的结果是和直接相加得到的结果相同的。wp的生成原论文是通过一个神奇算式计算出来的。
 
@@ -307,7 +307,7 @@ x矩阵中的每一行对应于输入句子中的一个单词。我们再次看�
 
 **Encoder**
 
-![image-20200828154118016](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828154118016.png)
+![image-20200828154118016](https://raw.githubusercontent.com/karlhl/Picgo/master/image/20200829152751.png)
 
 编码器的结构如上图。
 
@@ -413,11 +413,11 @@ seq2seq
 
 summarizer
 
-![image-20200828154850233](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828154850233.png)
+![image-20200828154850233](https://raw.githubusercontent.com/karlhl/Picgo/master/image/20200829152438.png)
 
 每一层都是transformer，在深度上都是rnn
 
-![image-20200828154902295](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828154902295.png)
+![image-20200828154902295](https://raw.githubusercontent.com/karlhl/Picgo/master/image/image-20200828154902295.png)
 
 也可以应用在图像上，每一个像素都去匹配其他像素
 

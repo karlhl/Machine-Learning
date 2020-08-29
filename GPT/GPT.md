@@ -6,9 +6,9 @@ GPT的参数非常大。ELMO有94M的参数，BERT有340M的参数，GPT-2有154
 
 GPT是Transformer的Decoder
 
-<img src="C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828235052752.png" alt="image-20200828235052752" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/karlhl/Picgo/master/image/image-20200828235052752.png" alt="image-20200828235052752" style="zoom:50%;" />
 
-<img src="C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200828235125608.png" alt="image-20200828235125608" style="zoom: 50%;" />
+<img src="https://raw.githubusercontent.com/karlhl/Picgo/master/image/image-20200828235125608.png" alt="image-20200828235125608" style="zoom: 50%;" />
 
 在前一个输出后，放到输入，然后预测下一个输出。
 
