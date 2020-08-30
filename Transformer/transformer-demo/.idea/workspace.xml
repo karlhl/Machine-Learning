@@ -73,6 +73,7 @@
       <workItem from="1598189170822" duration="1222000" />
       <workItem from="1598350746150" duration="258000" />
       <workItem from="1598351096283" duration="609000" />
+      <workItem from="1598687778370" duration="56000" />
     </task>
     <servers />
   </component>
@@ -84,6 +85,10 @@
       <screen x="0" y="0" width="1549" height="831" />
     </state>
     <state x="455" y="150" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1549.831@0.0.1549.831" timestamp="1598350919663" />
+    <state x="1292" y="378" key="FileChooserDialogImpl" timestamp="1598687823098">
+      <screen x="0" y="0" width="2065" height="1122" />
+    </state>
+    <state x="1292" y="378" key="FileChooserDialogImpl/0.0.2065.1122@0.0.2065.1122" timestamp="1598687823098" />
     <state width="2023" height="309" key="GridCell.Tab.0.bottom" timestamp="1598192027409">
       <screen x="0" y="0" width="2065" height="1122" />
     </state>
