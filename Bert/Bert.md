@@ -134,7 +134,7 @@ Bert 预训练过程就是模仿我们学习语言的过程，要准确的理解
 
 例子：句子= my dog is hairy， 选择的token是hairy。执行的流程为：
 
-![img](https:////upload-images.jianshu.io/upload_images/11011890-86e5bdc486ec5a65.png?imageMogr2/auto-orient/strip|imageView2/2/w/882/format/webp)
+![img](https://gitee.com/karlhan/picgo/raw/master/img//20200830201529.png)
 
 随机 mask 预料中 15% 的 Token，然后预测 [MASK] Token，与 masked token 对应的最终隐藏向量被输入到词汇表上的 softmax 层中。这虽然确实能训练一个双向预训练模型，但这种方法有个缺点，因为在预训练过程中随机 [MASK] Token 由于每次都是全部 mask，预训练期间会记住这些 MASK 信息，但是在fine-tune期间从未看到过 [MASK] Token，导致预训练和 fine-tune 信息不匹配。
 

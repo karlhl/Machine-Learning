@@ -253,7 +253,7 @@ optimizer = optim.Adadelta(model.parameters(), lr=0.001)
 ### 训练
 
 ```python
-for epoch in range(180):
+for epoch in range(50):
     for input_ids, segment_ids, masked_tokens, masked_pos, isNext in loader:
       logits_lm, logits_clsf = model(input_ids, segment_ids, masked_pos)
       loss_lm = criterion(logits_lm.view(-1, vocab_size), masked_tokens.view(-1)) # for masked LM

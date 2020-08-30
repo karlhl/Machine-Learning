@@ -20,23 +20,23 @@
 
 ​	我们理想中的目标是找到一个平衡点，使bias和variance尽可能小。
 
-![image-20200827194940895](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200827194940895.png)
+![image-20200827194940895](https://gitee.com/karlhan/picgo/raw/master/img//20200830205849.png)
 
 ​	如何判断是欠拟合还是过拟合？
 
-![image-20200827195120405](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200827195120405.png)
+![image-20200827195120405](https://gitee.com/karlhan/picgo/raw/master/img//20200830205850.png)
 
 ​	欠拟合，bias大：需要重新设计model
 
 ​	过拟合，方差大：需要增加数据data。或者加入正则化
 
-​	![image-20200827200045154](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200827200045154.png)
+​	![image-20200827200045154](https://gitee.com/karlhan/picgo/raw/master/img//20200830205851.png)
 
 ​	**如何选择模型：**可以先将一个模型分成三份，每次选一份作为测试集，然后进行测试错误率，然后将三个
 
 ​	模型的错误率计算平均错误率，选出最佳模型，然后在完整的模型上再测试。
 
-![image-20200827233031934](C:\Users\Karl\AppData\Roaming\Typora\typora-user-images\image-20200827233031934.png)
+![image-20200827233031934](https://gitee.com/karlhan/picgo/raw/master/img//20200830205852.png)
 
 
 
