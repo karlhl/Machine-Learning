@@ -46,7 +46,7 @@ for t in range(200):
     loss.backward()         # backpropagation, compute gradients
     optimizer.step()        # apply gradients
 
-    if t % 5 == 0:
+    if t % 20 == 0:
         # plot and show learning process
         plt.cla()
         plt.scatter(x.data.numpy(), y.data.numpy())
