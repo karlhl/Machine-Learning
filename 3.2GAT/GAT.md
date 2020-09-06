@@ -4,7 +4,7 @@
 
 深度学习三巨头”之一的Yoshua Bengio组提出了Graph Attention Networks（下述简称为GAT）去解决GCN存在的问题并且在不少的任务上都取得了state of art的效果（可以参考[机器之心：深入理解图注意力机制](https://zhuanlan.zhihu.com/p/57180498)的复现结果），是graph neural network领域值得关注的工作。
 
-<img src="https://pic3.zhimg.com/80/v2-a31700b686a553ce2daa7e077a84940f_720w.jpg" alt="img" style="zoom: 67%;" />
+<img src="https://gitee.com/karlhan/picgo/raw/master/img//image-20200905222010322.png" alt="image-20200905222010322" style="zoom:67%;" />
 
 Graph数据结构的两种“特征”，指的是定点和边的关系。研究目标聚焦在顶点之上，边诉说着顶点之间的关系。**对于任意一个顶点 ![[公式]](https://www.zhihu.com/equation?tex=i) ，它在图上邻居 ![[公式]](https://www.zhihu.com/equation?tex=%5Cmathcal%7BN%7D_i) ,构成第一种特征，即图的结构关系。**
 
@@ -110,6 +110,18 @@ GAT中重要的学习参数是![[公式]](https://www.zhihu.com/equation?tex=W) 
 
 与此相反的是，GCN是一种全图的计算方式，一次计算就更新全图的节点特征。学习的参数很大程度与图结构相关，这使得GCN在inductive任务上遇到困境。
 
+### 四、论文实验结果
+
+![image-20200906211550535](https://gitee.com/karlhan/picgo/raw/master/img//image-20200906211550535.png)
+
+半监督学习transductive learning实验中：
+
+![image-20200906211722382](https://gitee.com/karlhan/picgo/raw/master/img//image-20200906211722382.png)
+
+归纳学习inductive learning
+
+![image-20200906211954389](https://gitee.com/karlhan/picgo/raw/master/img//image-20200906211954389.png)
+
 
 
 
@@ -119,5 +131,4 @@ GAT中重要的学习参数是![[公式]](https://www.zhihu.com/equation?tex=W) 
 ### 参考
 
 1. [GRAPH ATTENTION NETWORKS](https：//arxiv.org/abs/1710.10903)
-
- 	2. [向往的GAT（图注意力模型）](https://zhuanlan.zhihu.com/p/81350196?utm_source=wechat_session)
+2. [向往的GAT（图注意力模型）](https://zhuanlan.zhihu.com/p/81350196?utm_source=wechat_session)

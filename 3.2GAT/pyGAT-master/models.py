@@ -11,10 +11,12 @@ class GAT(nn.Module):
         self.dropout = dropout
 
         self.attentions = [GraphAttentionLayer(nfeat, nhid, dropout=dropout, alpha=alpha, concat=True) for _ in range(nheads)]
+        # 输入到隐藏层
         for i, attention in enumerate(self.attentions):
             self.add_module('attention_{}'.format(i), attention)
 
         self.out_att = GraphAttentionLayer(nhid * nheads, nclass, dropout=dropout, alpha=alpha, concat=False)
+        # 隐藏层到输出
 
     def forward(self, x, adj):
         x = F.dropout(x, self.dropout, training=self.training)

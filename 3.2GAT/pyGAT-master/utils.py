@@ -4,9 +4,10 @@ import torch
 
 
 def encode_onehot(labels):
-    classes = set(labels)
-    classes_dict = {c: np.identity(len(classes))[i, :] for i, c in enumerate(classes)}
-    labels_onehot = np.array(list(map(classes_dict.get, labels)), dtype=np.int32)
+    classes = set(labels) # 首先去重
+    # np.identity用于创建对角为1的方针，其余为0.这是onehot的核心
+    classes_dict = {c: np.identity(len(classes))[i, :] for i, c in enumerate(classes)} # 第i行就是第i个索引为1的list
+    labels_onehot = np.array(list(map(classes_dict.get, labels)), dtype=np.int32) # 逐个把labels中的字符根据dict转为二维数组
     return labels_onehot
 
 
@@ -35,14 +36,19 @@ def load_data(path="./data/cora/", dataset="cora"):
     # 将边信息的id，转为上边的序号。然后reshape成原来一样的形状
     edges = np.array(list(map(idx_map.get, edges_unordered.flatten())), dtype=np.int32).reshape(edges_unordered.shape)
     # 构建邻接矩阵adj
+    # 根据coo矩阵性质，这一段的作用就是，网络有多少条边，邻接矩阵就有多少个1，
+    # 所以先创建一个长度为edge_num的全1数组，每个1的填充位置就是一条边中两个端点的编号，
+    # 即edges[:, 0], edges[:, 1]，矩阵的形状为(node_size, node_size)。
     adj = sp.coo_matrix((np.ones(edges.shape[0]), (edges[:, 0], edges[:, 1])), shape=(labels.shape[0], labels.shape[0]), dtype=np.float32)
 
     # build symmetric adjacency matrix
+    # 文里A^=(D~)^0.5 A~ (D~)^0.5这个公式
     # 对于无向图，邻接矩阵是对称的。上一步得到的adj是按有向图构建的，转换成无向图的邻接矩阵需要扩充成对称矩阵。
     adj = adj + adj.T.multiply(adj.T > adj) - adj.multiply(adj.T > adj)
 
     features = normalize_features(features)  # 同gcn的normalize
-    adj = normalize_adj(adj + sp.eye(adj.shape[0]))
+    adj = normalize_adj(adj + sp.eye(adj.shape[0]))    # eye创建单位矩阵，第一个参数为行数，第二个为列数
+    # 对应公式A~=A+IN
 
     idx_train = range(140) #训练集
     idx_val = range(200, 500) # 验证集
@@ -63,10 +69,11 @@ def load_data(path="./data/cora/", dataset="cora"):
 """
 def normalize_adj(mx):
     """Row-normalize sparse matrix"""
-    rowsum = np.array(mx.sum(1))
-    r_inv_sqrt = np.power(rowsum, -0.5).flatten()
-    r_inv_sqrt[np.isinf(r_inv_sqrt)] = 0.
-    r_mat_inv_sqrt = sp.diags(r_inv_sqrt)
+    rowsum = np.array(mx.sum(1))  # 每一行求和
+    r_inv_sqrt = np.power(rowsum, -0.5).flatten()  # 求倒数
+    r_inv_sqrt[np.isinf(r_inv_sqrt)] = 0.  # 如果某一行全为0，则r_inv算出来会等于无穷大，将这些行的r_inv置为0
+    r_mat_inv_sqrt = sp.diags(r_inv_sqrt)   # 构建对角元素为r_inv的对角矩阵
+    # 用对角矩阵与原始矩阵的点积起到标准化的作用，原始矩阵中每一行元素都会与对应的r_inv相乘，最终相当于除以了sum
     return mx.dot(r_mat_inv_sqrt).transpose().dot(r_mat_inv_sqrt)
 
 

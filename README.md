@@ -8,6 +8,10 @@
 
 
 
+### Python科学计算库
+
+- [ ] Scipy
+
 ### 机器学习基础模型
 
 ##### Base Models
