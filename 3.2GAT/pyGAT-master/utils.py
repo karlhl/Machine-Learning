@@ -26,8 +26,10 @@ def load_data(path="./data/cora/", dataset="cora"):
     labels在文件中是用字符串表示的某个论文所属的类别，如“reinforce learning”，要将其表示成one-hot向量的形式，用到了encode_onehot()的方法。
     """
     idx_features_labels = np.genfromtxt("{}{}.content".format(path, dataset), dtype=np.dtype(str))  # 读取文件每一行
+    # idx_feature_labels  (2708,1435)
     features = sp.csr_matrix(idx_features_labels[:, 1:-1], dtype=np.float32)  # 切片左闭右开，除去第一列id，最后一列label
     labels = encode_onehot(idx_features_labels[:, -1])
+    #labels (2708,7)
 
     # build graph
     idx = np.array(idx_features_labels[:, 0], dtype=np.int32)  # 将所有id表示为numpy数组
