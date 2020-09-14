@@ -19,10 +19,10 @@ class GAT(nn.Module):
         # 隐藏层到输出
 
     def forward(self, x, adj):
-        x = F.dropout(x, self.dropout, training=self.training)
-        x = torch.cat([att(x, adj) for att in self.attentions], dim=1)
-        x = F.dropout(x, self.dropout, training=self.training)
-        x = F.elu(self.out_att(x, adj))
+        x = F.dropout(x, self.dropout, training=self.training)  # (2708,1433)
+        x = torch.cat([att(x, adj) for att in self.attentions], dim=1)    # x(2708,64)   每一个att层是（2708,8），把八个att按列进行拼接所以是（2708,64）
+        x = F.dropout(x, self.dropout, training=self.training)   # x(2708,64)
+        x = F.elu(self.out_att(x, adj))  # x（2708,7）
         return F.log_softmax(x, dim=1)
 
 

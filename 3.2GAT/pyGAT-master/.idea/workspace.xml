@@ -28,6 +28,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../3.1GCN/pygcn-master" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunManager" selected="Python.train">
     <configuration name="demo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -118,6 +119,13 @@
       <workItem from="1599394533082" duration="5620000" />
       <workItem from="1599630471421" duration="2375000" />
       <workItem from="1599642714345" duration="69000" />
+      <workItem from="1599722296795" duration="4082000" />
+      <workItem from="1599735252633" duration="5580000" />
+      <workItem from="1599787004640" duration="3552000" />
+      <workItem from="1599800242678" duration="4943000" />
+      <workItem from="1599996794253" duration="696000" />
+      <workItem from="1600000657901" duration="666000" />
+      <workItem from="1600004173996" duration="61000" />
     </task>
     <servers />
   </component>
@@ -137,58 +145,55 @@
       <screen x="0" y="0" width="2065" height="1122" />
     </state>
     <state x="814" y="316" key="FileChooserDialogImpl/0.0.2065.1122@0.0.2065.1122" timestamp="1599295767903" />
-    <state width="2023" height="277" key="GridCell.Tab.0.bottom" timestamp="1599634742553">
+    <state width="2023" height="227" key="GridCell.Tab.0.bottom" timestamp="1599808976904">
       <screen x="0" y="0" width="2065" height="1122" />
     </state>
-    <state width="2023" height="277" key="GridCell.Tab.0.bottom/0.0.2065.1122@0.0.2065.1122" timestamp="1599634742553" />
-    <state width="2023" height="277" key="GridCell.Tab.0.center" timestamp="1599634742553">
+    <state width="2023" height="227" key="GridCell.Tab.0.bottom/0.0.2065.1122@0.0.2065.1122" timestamp="1599808976904" />
+    <state width="2023" height="227" key="GridCell.Tab.0.center" timestamp="1599808976903">
       <screen x="0" y="0" width="2065" height="1122" />
     </state>
-    <state width="2023" height="277" key="GridCell.Tab.0.center/0.0.2065.1122@0.0.2065.1122" timestamp="1599634742553" />
-    <state width="2023" height="277" key="GridCell.Tab.0.left" timestamp="1599634742553">
+    <state width="2023" height="227" key="GridCell.Tab.0.center/0.0.2065.1122@0.0.2065.1122" timestamp="1599808976903" />
+    <state width="2023" height="227" key="GridCell.Tab.0.left" timestamp="1599808976903">
       <screen x="0" y="0" width="2065" height="1122" />
     </state>
-    <state width="2023" height="277" key="GridCell.Tab.0.left/0.0.2065.1122@0.0.2065.1122" timestamp="1599634742553" />
-    <state width="2023" height="277" key="GridCell.Tab.0.right" timestamp="1599634742553">
+    <state width="2023" height="227" key="GridCell.Tab.0.left/0.0.2065.1122@0.0.2065.1122" timestamp="1599808976903" />
+    <state width="2023" height="227" key="GridCell.Tab.0.right" timestamp="1599808976904">
       <screen x="0" y="0" width="2065" height="1122" />
     </state>
-    <state width="2023" height="277" key="GridCell.Tab.0.right/0.0.2065.1122@0.0.2065.1122" timestamp="1599634742553" />
-    <state width="2023" height="277" key="GridCell.Tab.1.bottom" timestamp="1599634742553">
+    <state width="2023" height="227" key="GridCell.Tab.0.right/0.0.2065.1122@0.0.2065.1122" timestamp="1599808976904" />
+    <state width="2023" height="227" key="GridCell.Tab.1.bottom" timestamp="1599808976904">
       <screen x="0" y="0" width="2065" height="1122" />
     </state>
-    <state width="2023" height="277" key="GridCell.Tab.1.bottom/0.0.2065.1122@0.0.2065.1122" timestamp="1599634742553" />
-    <state width="2023" height="277" key="GridCell.Tab.1.center" timestamp="1599634742553">
+    <state width="2023" height="227" key="GridCell.Tab.1.bottom/0.0.2065.1122@0.0.2065.1122" timestamp="1599808976904" />
+    <state width="2023" height="227" key="GridCell.Tab.1.center" timestamp="1599808976904">
       <screen x="0" y="0" width="2065" height="1122" />
     </state>
-    <state width="2023" height="277" key="GridCell.Tab.1.center/0.0.2065.1122@0.0.2065.1122" timestamp="1599634742553" />
-    <state width="2023" height="277" key="GridCell.Tab.1.left" timestamp="1599634742553">
+    <state width="2023" height="227" key="GridCell.Tab.1.center/0.0.2065.1122@0.0.2065.1122" timestamp="1599808976904" />
+    <state width="2023" height="227" key="GridCell.Tab.1.left" timestamp="1599808976904">
       <screen x="0" y="0" width="2065" height="1122" />
     </state>
-    <state width="2023" height="277" key="GridCell.Tab.1.left/0.0.2065.1122@0.0.2065.1122" timestamp="1599634742553" />
-    <state width="2023" height="277" key="GridCell.Tab.1.right" timestamp="1599634742553">
+    <state width="2023" height="227" key="GridCell.Tab.1.left/0.0.2065.1122@0.0.2065.1122" timestamp="1599808976904" />
+    <state width="2023" height="227" key="GridCell.Tab.1.right" timestamp="1599808976904">
       <screen x="0" y="0" width="2065" height="1122" />
     </state>
-    <state width="2023" height="277" key="GridCell.Tab.1.right/0.0.2065.1122@0.0.2065.1122" timestamp="1599634742553" />
+    <state width="2023" height="227" key="GridCell.Tab.1.right/0.0.2065.1122@0.0.2065.1122" timestamp="1599808976904" />
+    <state width="1040" height="568" key="XDebugger.FullValuePopup" timestamp="1599789656427">
+      <screen x="0" y="0" width="2065" height="1122" />
+    </state>
+    <state width="1040" height="568" key="XDebugger.FullValuePopup/0.0.2065.1122@0.0.2065.1122" timestamp="1599789656427" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/train.py</url>
-          <line>44</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/utils.py</url>
-          <line>30</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="adj" language="Python" />
+        <watch expression="adj" language="Python" />
+        <watch expression="adj" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/pyGAT_master$demo.coverage" NAME="demo Coverage Results" MODIFIED="1599373371465" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pyGAT_master$layers.coverage" NAME="layers Coverage Results" MODIFIED="1599396667125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pyGAT_master$train.coverage" NAME="train Coverage Results" MODIFIED="1599633986801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pyGAT_master$demo.coverage" NAME="demo Coverage Results" MODIFIED="1599806737791" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pyGAT_master$layers.coverage" NAME="layers Coverage Results" MODIFIED="1599808495846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pyGAT_master$train.coverage" NAME="train Coverage Results" MODIFIED="1599808905715" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

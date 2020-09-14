@@ -18,11 +18,11 @@
 
 数据集包含两个文件：
 
-1.Content文件，其中是以下格式*<paper_id> <word_attributes>+ <class_label>
+1.Content文件，其中是以下格式<paper_id> <word_attributes>+ <class_label>
 
 每行的第一个条目包含纸张的唯一字符串标识，后跟二进制值，指示词汇中的每个单词在文章中是存在(由1表示)还是不存在(由0表示)。
 
-最后，该行的最后一个条目包含纸张的类别标签。因此数据集的feature应该为2709×14332709 \times 14332709×1433维度。第一行为idx，最后一行是label
+最后，该行的最后一个条目包含纸张的类别标签。因此数据集的feature应该为2709×1433维度。第一行为idx，最后一行是label
 
 2.Cites文件
 

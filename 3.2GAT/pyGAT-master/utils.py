@@ -36,7 +36,8 @@ def load_data(path="./data/cora/", dataset="cora"):
     idx_map = {j: i for i, j in enumerate(idx)} # 因为节点并不是按照顺序排列的，所以建立一个嘻哈表{文章id：排列的number}
     edges_unordered = np.genfromtxt("{}{}.cites".format(path, dataset), dtype=np.int32) # 读取的边文件的结果，是一个(edge_num, 2)的数组，每一行表示一条边两个端点的idx。
     # 将边信息的id，转为上边的序号。然后reshape成原来一样的形状
-    edges = np.array(list(map(idx_map.get, edges_unordered.flatten())), dtype=np.int32).reshape(edges_unordered.shape)
+    edges = np.array(list(map(idx_map.get, edges_unordered.flatten())), dtype=np.int32)
+    edges = edges.reshape(edges_unordered.shape)
     # 构建邻接矩阵adj
     # 根据coo矩阵性质，这一段的作用就是，网络有多少条边，邻接矩阵就有多少个1，
     # 所以先创建一个长度为edge_num的全1数组，每个1的填充位置就是一条边中两个端点的编号，
