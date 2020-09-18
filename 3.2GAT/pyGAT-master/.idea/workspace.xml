@@ -27,7 +27,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../3.1GCN/pygcn-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunManager" selected="Python.train">
@@ -126,6 +126,7 @@
       <workItem from="1599996794253" duration="696000" />
       <workItem from="1600000657901" duration="666000" />
       <workItem from="1600004173996" duration="61000" />
+      <workItem from="1600329348562" duration="720000" />
     </task>
     <servers />
   </component>

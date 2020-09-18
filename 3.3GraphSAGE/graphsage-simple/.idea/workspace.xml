@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a1b2566f-d863-45ff-9a80-bb0e8a2252a7" name="默认的" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="JupyterTrust" id="7c955530-478e-484e-8ab2-602014bdddf1" />
+  <component name="ProjectId" id="1hZVaZzRJ7IfDXAHWV0QZEUUNlQ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager" selected="Python.model">
+    <configuration name="domo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="graphsage-simple" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Test/domo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="graphsage-simple" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/graphsage" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/graphsage/model.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test001" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="graphsage-simple" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Test/test001.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.model" />
+        <item itemvalue="Python.domo" />
+        <item itemvalue="Python.test001" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a1b2566f-d863-45ff-9a80-bb0e8a2252a7" name="默认的" comment="" />
+      <created>1600218665307</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600218665307</updated>
+      <workItem from="1600218666392" duration="3267000" />
+      <workItem from="1600254983729" duration="2209000" />
+      <workItem from="1600302389740" duration="1586000" />
+      <workItem from="1600324858837" duration="3082000" />
+      <workItem from="1600344019515" duration="614000" />
+      <workItem from="1600347372001" duration="3087000" />
+      <workItem from="1600412428970" duration="4515000" />
+      <workItem from="1600440090630" duration="612000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="463" y="314" key="#xdebugger.XInspectDialog" timestamp="1600219826570">
+      <screen x="0" y="0" width="2065" height="1122" />
+    </state>
+    <state x="463" y="314" key="#xdebugger.XInspectDialog/0.0.2065.1122@0.0.2065.1122" timestamp="1600219826570" />
+    <state x="814" y="316" key="FileChooserDialogImpl" timestamp="1600344037199">
+      <screen x="0" y="0" width="2065" height="1122" />
+    </state>
+    <state x="814" y="316" key="FileChooserDialogImpl/0.0.2065.1122@0.0.2065.1122" timestamp="1600344037199" />
+    <state width="2023" height="396" key="GridCell.Tab.0.bottom" timestamp="1600415494711">
+      <screen x="0" y="0" width="2065" height="1122" />
+    </state>
+    <state width="2023" height="396" key="GridCell.Tab.0.bottom/0.0.2065.1122@0.0.2065.1122" timestamp="1600415494711" />
+    <state width="2023" height="396" key="GridCell.Tab.0.center" timestamp="1600415494710">
+      <screen x="0" y="0" width="2065" height="1122" />
+    </state>
+    <state width="2023" height="396" key="GridCell.Tab.0.center/0.0.2065.1122@0.0.2065.1122" timestamp="1600415494710" />
+    <state width="2023" height="396" key="GridCell.Tab.0.left" timestamp="1600415494710">
+      <screen x="0" y="0" width="2065" height="1122" />
+    </state>
+    <state width="2023" height="396" key="GridCell.Tab.0.left/0.0.2065.1122@0.0.2065.1122" timestamp="1600415494710" />
+    <state width="2023" height="396" key="GridCell.Tab.0.right" timestamp="1600415494710">
+      <screen x="0" y="0" width="2065" height="1122" />
+    </state>
+    <state width="2023" height="396" key="GridCell.Tab.0.right/0.0.2065.1122@0.0.2065.1122" timestamp="1600415494710" />
+    <state width="2023" height="396" key="GridCell.Tab.1.bottom" timestamp="1600415498176">
+      <screen x="0" y="0" width="2065" height="1122" />
+    </state>
+    <state width="2023" height="396" key="GridCell.Tab.1.bottom/0.0.2065.1122@0.0.2065.1122" timestamp="1600415498176" />
+    <state width="2023" height="396" key="GridCell.Tab.1.center" timestamp="1600415498176">
+      <screen x="0" y="0" width="2065" height="1122" />
+    </state>
+    <state width="2023" height="396" key="GridCell.Tab.1.center/0.0.2065.1122@0.0.2065.1122" timestamp="1600415498176" />
+    <state width="2023" height="396" key="GridCell.Tab.1.left" timestamp="1600415498176">
+      <screen x="0" y="0" width="2065" height="1122" />
+    </state>
+    <state width="2023" height="396" key="GridCell.Tab.1.left/0.0.2065.1122@0.0.2065.1122" timestamp="1600415498176" />
+    <state width="2023" height="396" key="GridCell.Tab.1.right" timestamp="1600415498176">
+      <screen x="0" y="0" width="2065" height="1122" />
+    </state>
+    <state width="2023" height="396" key="GridCell.Tab.1.right/0.0.2065.1122@0.0.2065.1122" timestamp="1600415498176" />
+    <state width="1040" height="568" key="XDebugger.FullValuePopup" timestamp="1600416454353">
+      <screen x="0" y="0" width="2065" height="1122" />
+    </state>
+    <state width="1040" height="568" key="XDebugger.FullValuePopup/0.0.2065.1122@0.0.2065.1122" timestamp="1600416454353" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/graphsage_simple$test001.coverage" NAME="test001 Coverage Results" MODIFIED="1600218887863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Test" />
+    <SUITE FILE_PATH="coverage/graphsage_simple$model.coverage" NAME="model Coverage Results" MODIFIED="1600415494481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/graphsage" />
+    <SUITE FILE_PATH="coverage/graphsage_simple$domo.coverage" NAME="domo Coverage Results" MODIFIED="1600415466178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Test" />
+  </component>
+</project>
