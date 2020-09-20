@@ -27,7 +27,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../graphsage-深入浅出" />
   </component>
   <component name="RunManager" selected="Python.model">
     <configuration name="domo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -120,6 +120,7 @@
       <workItem from="1600347372001" duration="3087000" />
       <workItem from="1600412428970" duration="4515000" />
       <workItem from="1600440090630" duration="612000" />
+      <workItem from="1600498295615" duration="4367000" />
     </task>
     <servers />
   </component>
@@ -131,10 +132,10 @@
       <screen x="0" y="0" width="2065" height="1122" />
     </state>
     <state x="463" y="314" key="#xdebugger.XInspectDialog/0.0.2065.1122@0.0.2065.1122" timestamp="1600219826570" />
-    <state x="814" y="316" key="FileChooserDialogImpl" timestamp="1600344037199">
+    <state x="814" y="316" key="FileChooserDialogImpl" timestamp="1600521557530">
       <screen x="0" y="0" width="2065" height="1122" />
     </state>
-    <state x="814" y="316" key="FileChooserDialogImpl/0.0.2065.1122@0.0.2065.1122" timestamp="1600344037199" />
+    <state x="814" y="316" key="FileChooserDialogImpl/0.0.2065.1122@0.0.2065.1122" timestamp="1600521557530" />
     <state width="2023" height="396" key="GridCell.Tab.0.bottom" timestamp="1600415494711">
       <screen x="0" y="0" width="2065" height="1122" />
     </state>
