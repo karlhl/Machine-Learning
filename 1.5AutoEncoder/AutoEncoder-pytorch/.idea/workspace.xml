@@ -27,15 +27,15 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../3.1GCN/pygcn-master" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\work\Github\Machine-Learning\1.4AutoEncoder\AutoEncoder-pytorch" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3">
-    <configuration name="3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.AutoEncoderWithEncoderOutput">
+    <configuration name="AutoEncoderWithEncoderOutput" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AutoEncoder-pytorch" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -48,7 +48,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/3.py" />
+      <option name="SCRIPT_NAME" value="D:\work\Github\Machine-Learning\1.4AutoEncoder\AutoEncoder-pytorch\AutoEncoderWithEncoderOutput.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -103,7 +103,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.3" />
+        <item itemvalue="Python.AutoEncoderWithEncoderOutput" />
         <item itemvalue="Python.demo" />
         <item itemvalue="Python.autoencoder" />
       </list>
@@ -119,6 +119,7 @@
       <updated>1600587215661</updated>
       <workItem from="1600587216753" duration="8161000" />
       <workItem from="1600601645494" duration="1778000" />
+      <workItem from="1600776701226" duration="75000" />
     </task>
     <servers />
   </component>
@@ -126,6 +127,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="814" y="316" key="FileChooserDialogImpl" timestamp="1600776776502">
+      <screen x="0" y="0" width="2065" height="1122" />
+    </state>
+    <state x="814" y="316" key="FileChooserDialogImpl/0.0.2065.1122@0.0.2065.1122" timestamp="1600776776502" />
     <state width="2023" height="380" key="GridCell.Tab.0.bottom" timestamp="1600603438451">
       <screen x="0" y="0" width="2065" height="1122" />
     </state>
@@ -167,7 +172,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/3.py</url>
+          <url>file://$PROJECT_DIR$/AutoEncoderWithEncoderOutput.py</url>
           <line>89</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>

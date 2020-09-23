@@ -17,20 +17,22 @@
 ##### Base Models
 
 - [x] Regression
-- [ ] CNN
-- [ ] RNN
-- [ ] LSTM
+- [x] CNN
+- [x] RNN
+- [x] LSTM
 
 ##### Higher Models
 
 - [ ] Attention
-- [ ] Transformer
-- [ ] BERT
+- [x] Transformer
+- [x] BERT
 - [ ] GPT
 - [ ] DANet
 - [ ] GNNs
-  - [ ] GCN
-  - [ ] GAT
+  - [x] GCN
+  - [x] GAT
+  - [x] GraphSAGE
 
 ### 推荐算法模型
 
+- [ ] FM
