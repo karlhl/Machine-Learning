@@ -20,6 +20,11 @@
 - [x] CNN
 - [x] RNN
 - [x] LSTM
+- [ ] 决策树
+  - [ ] 随机森林
+  - [ ] GBDT
+  - [ ] ADABOOST
+  - [ ] XGBOOST
 
 ##### Higher Models
 
