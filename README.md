@@ -4,10 +4,6 @@
 
 争取每个模型都有三部分：原理讲解，代码实现，代码讲解报告三部分。
 
-### Python Web
-
-
-
 ### Python科学计算库
 
 - [ ] Scipy
@@ -21,10 +17,10 @@
 - [x] RNN
 - [x] LSTM
 - [ ] 决策树
-  - [ ] 随机森林
+  - [ ] AdaBoost
   - [ ] GBDT
-  - [ ] ADABOOST
-  - [ ] XGBOOST
+  - [ ] 随机森林
+  - [ ] XGBoost
 
 ##### Higher Models
 
@@ -37,6 +33,7 @@
   - [x] GCN
   - [x] GAT
   - [x] GraphSAGE
+  - [ ] R-GCN
 
 ### 推荐算法模型
 

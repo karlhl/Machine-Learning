@@ -27,7 +27,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../temp/demo" />
   </component>
   <component name="RunManager" selected="Python.CNN-cifar10">
     <configuration name="CNN-cifar10" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -90,6 +90,7 @@
       <updated>1600851627628</updated>
       <workItem from="1600851628775" duration="473000" />
       <workItem from="1600852126000" duration="1839000" />
+      <workItem from="1601556005044" duration="19000" />
     </task>
     <servers />
   </component>
@@ -97,6 +98,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1314" y="426" key="FileChooserDialogImpl" timestamp="1601556021693">
+      <screen x="0" y="0" width="2065" height="1122" />
+    </state>
+    <state x="1314" y="426" key="FileChooserDialogImpl/0.0.2065.1122@0.0.2065.1122" timestamp="1601556021693" />
     <state width="2023" height="235" key="GridCell.Tab.0.bottom" timestamp="1600855996834">
       <screen x="0" y="0" width="2065" height="1122" />
     </state>
