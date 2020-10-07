@@ -61,7 +61,9 @@ Adaboost分类器试图把两类数据分开，运行一下程序，显示出决
 
 
 
+参考：
 
+- [Adaboost入门教程](https://blog.csdn.net/px_528/article/details/72963977)
 
 
 
