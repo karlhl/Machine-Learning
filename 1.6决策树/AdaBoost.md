@@ -57,7 +57,26 @@ Adaboost分类器试图把两类数据分开，运行一下程序，显示出决
 
 
 
+### sklearn实现
 
+```python
+from sklearn.ensemble import AdaBoostClassifier # For Classification
+from sklearn.ensemble import AdaBoostRegressor  # For Regression
+from skleran.tree import DecisionTreeClassifier
+ 
+dt = DecisionTreeClassifier()
+clf = AdaBoostClassifier(n_estimators=100, base_estimator=dt, learning_rate=1)
+# Above I have used decision tree as a base estimator, you can use any ML learner as base estimator if it accepts sample weight
+clf.fit(x_train, y_train)
+```
+
+可以调整参数以优化算法的性能：
+
+- n_estimators：它控制了弱学习器的数量
+- learning_rate：控制在最后的组合中每个弱分类器的权重，需要在learning_rate和n_estimators间有个权衡
+- base_estimators：它用来指定不同的ML算法。
+
+也可以调整基础学习器的参数以优化它自身的性能。
 
 
 
